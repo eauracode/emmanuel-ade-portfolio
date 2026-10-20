@@ -185,6 +185,20 @@ export const webProjects = {
       imageAlt: "CashOS fintech dashboard",
     },
     {
+      name: "DLISA Student Portal — every complaint heard, none lost",
+      description:
+        "A welfare and academic support portal for the students' association of the University of Lagos Distance Learning Institute. Students raise a concern in under a minute with just a username — no name, no phone number, no matric number — and follow it privately to resolution. AI groups duplicate reports into one issue, so the executive sees what matters most, assigns it, sets a deadline, and publishes one update to everyone affected.",
+      stack: ["Next.js 16", "React 19", "TypeScript", "PostgreSQL", "Tailwind v4", "AI Matching"],
+      ctas: [
+        {
+          label: "I want a portal like this →",
+          waMessage: "Hi Emmanuel, I saw the DLISA portal — I want a portal like this for my organisation.",
+        },
+      ],
+      image: "/screenshots/dlisa.jpeg",
+      imageAlt: "DLI Students' Association student support portal",
+    },
+    {
       name: "MicroTech Hub Africa — a redesign built to convert",
       description:
         "A tech academy's website, completely rebuilt to be fast, modern, and focused on one job: turning visitors into enrolled students. Shipped live to production.",
@@ -198,6 +212,21 @@ export const webProjects = {
       ],
       image: "/screenshots/microtech.jpeg",
       imageAlt: "MicroTech Hub Africa website",
+    },
+    {
+      name: "Dr. Busayo — a clinic, a foundation, and a ministry on one site",
+      description:
+        "One website for a consultant psychiatrist's three ventures: a virtual clinic with online booking, a mental health foundation, and a faith-based healing ministry — each with its own colour and its own call to action. Her team edits everything without a developer, it scores 95+ on Google's mobile speed test over Nigerian networks, and it runs on low-cost shared hosting.",
+      stack: ["WordPress", "PHP 8.1", "Custom Theme", "LatePoint Booking", "Schema SEO"],
+      ctas: [
+        { label: "Visit live site →", href: "https://www.drbusayo.com" },
+        {
+          label: "I want a site like this →",
+          waMessage: "Hi Emmanuel, I saw drbusayo.com — I want a website like this.",
+        },
+      ],
+      image: "/screenshots/drbusayo.jpeg",
+      imageAlt: "Dr. Busayo website home page",
     },
     {
       name: "VenDoor Ops Suite — three products, one operation",
