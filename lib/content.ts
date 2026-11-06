@@ -171,6 +171,21 @@ export const webProjects = {
   title: "Products that look funded — built in weeks.",
   projects: [
     {
+      name: "Yemcy Beauty World — an online boutique that sells while she sleeps",
+      description:
+        "A complete online store for a Lagos jewellery, bags and shoes seller. Customers shop, pay by card, transfer or USSD, and get their receipt on WhatsApp the moment payment clears. A “Find it for me” feature lets them upload a picture they saw on Instagram or TikTok and get a sourced quote with a payment link — sales that used to get lost in the DMs.",
+      stack: ["Next.js 16", "React 19", "PostgreSQL", "Prisma", "Paystack", "WhatsApp"],
+      ctas: [
+        { label: "Visit live store →", href: "https://yemcy-store-ashy.vercel.app" },
+        {
+          label: "I want a store like this →",
+          waMessage: "Hi Emmanuel, I saw the Yemcy store — I want an online store like this.",
+        },
+      ],
+      image: "/screenshots/yemcy.jpeg",
+      imageAlt: "Yemcy Beauty World online store home page",
+    },
+    {
       name: "CashOS — an investor-ready fintech product, built to pitch",
       description:
         "A complete fintech app prototype — wallets, transactions, billing, insights, and reporting across 12 screens — polished enough to demo to investors. This is what your MVP can look like: real enough to raise money on, fast enough to beat your competition to the room.",
@@ -240,6 +255,56 @@ export const webProjects = {
       imageAlt: "VenDoor product demo suite",
     },
   ] satisfies Project[],
+};
+
+export const pricing = {
+  eyebrow: "Online store pricing",
+  title: "Your own online store. One price. ₦0/month after.",
+  intro:
+    "For SMEs and online vendors ready to sell beyond the DMs. Every plan is a one-off payment — no monthly fees, no commission on your sales, and the store is 100% yours.",
+  plans: [
+    {
+      name: "Starter",
+      price: "₦75,000",
+      badge: "Most popular",
+      tagline: "Everything you need to start selling online.",
+      features: [
+        "Your own storefront, fast on any phone",
+        "Payment gateway — card, transfer, and USSD",
+        "WhatsApp integration — order and chat in one tap",
+        "Up to 20 products",
+      ],
+      ctaLabel: "Start with Starter →",
+      waMessage: "Hi Emmanuel, I'd like the Starter online store plan (₦75,000).",
+    },
+    {
+      name: "Premium",
+      price: "₦149,000",
+      tagline: "For growing stores with a bigger catalogue.",
+      features: [
+        "Everything in Starter",
+        "Unlimited products — add as many as you sell",
+      ],
+      ctaLabel: "Go Premium →",
+      waMessage: "Hi Emmanuel, I'd like the Premium online store plan (₦149,000).",
+    },
+    {
+      name: "Gold",
+      price: "₦250,000",
+      tagline: "Your store, with AI support and automation built in.",
+      features: [
+        "Everything in Premium",
+        "AI WhatsApp assistant that answers customers 24/7",
+        "WhatsApp orders recorded automatically",
+        "Automatic receipts and order updates by WhatsApp and email",
+        "AI-written product descriptions",
+      ],
+      ctaLabel: "Go Gold →",
+      waMessage: "Hi Emmanuel, I'd like the Gold online store plan (₦250,000).",
+    },
+  ],
+  footnote:
+    "One-off price, ₦0/month after launch. Only third-party costs are yours: a domain name if you want one, and the payment gateway's standard fee on each sale.",
 };
 
 export const skillsSection = {
