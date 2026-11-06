@@ -1,34 +1,45 @@
 @import "tailwindcss";
 
+/* "Midnight Studio" direction: near-black ground, one amber accent. */
 :root {
-  --background: #09090b;
-  --surface: #0e0e11;
-  --surface-raised: #131317;
-  --foreground: #f4f4f5;
-  --muted-foreground: #9b9ba3;
-  --faint-foreground: #6e6e77;
-  --border: rgba(255, 255, 255, 0.08);
-  --border-strong: rgba(255, 255, 255, 0.14);
-  --accent: #34d399;
-  --accent-strong: #10b981;
-  --accent-dim: rgba(52, 211, 153, 0.12);
+  --background: #0e1116;
+  --band: #12161c;
+  --surface: #161a21;
+  --surface-raised: #1f242d;
+  --foreground: #f5f5f4;
+  --soft-foreground: #c9cdd3;
+  --muted-foreground: #b4bac3;
+  --faint-foreground: #9ca3af;
+  --border: #232832;
+  --border-mid: #2a2f38;
+  --border-strong: #3a404b;
+  --accent: #e8a33b;
+  --accent-hover: #f3be6a;
+  --accent-dim: rgba(232, 163, 59, 0.12);
+  --on-accent: #0e1116;
+  --live: #3fb950;
 }
 
 @theme inline {
   --color-background: var(--background);
+  --color-band: var(--band);
   --color-surface: var(--surface);
   --color-surface-raised: var(--surface-raised);
   --color-foreground: var(--foreground);
+  --color-soft-foreground: var(--soft-foreground);
   --color-muted-foreground: var(--muted-foreground);
   --color-faint-foreground: var(--faint-foreground);
   --color-border-subtle: var(--border);
+  --color-border-mid: var(--border-mid);
   --color-border-strong: var(--border-strong);
   --color-accent: var(--accent);
-  --color-accent-strong: var(--accent-strong);
+  --color-accent-hover: var(--accent-hover);
   --color-accent-dim: var(--accent-dim);
+  --color-on-accent: var(--on-accent);
+  --color-live: var(--live);
 
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
+  --font-display: var(--font-space-grotesk), var(--font-inter), ui-sans-serif, sans-serif;
 }
 
 html {
@@ -49,8 +60,14 @@ body {
 }
 
 ::selection {
-  background: rgba(52, 211, 153, 0.28);
-  color: #f4f4f5;
+  background: rgba(232, 163, 59, 0.32);
+  color: var(--foreground);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
 }
 
 /* Subtle scrollbar for the dark theme */
@@ -61,12 +78,12 @@ body {
   background: var(--background);
 }
 ::-webkit-scrollbar-thumb {
-  background: #26262c;
+  background: var(--border-mid);
   border-radius: 5px;
   border: 2px solid var(--background);
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #333339;
+  background: var(--border-strong);
 }
 
 :focus-visible {
@@ -110,36 +127,12 @@ body {
   display: none;
 }
 
-/* Ambient section backdrops */
-.glow-hero {
-  background: radial-gradient(
-    ellipse 60% 45% at 50% -5%,
-    rgba(52, 211, 153, 0.13),
-    transparent 70%
-  );
+/* Warm halo behind the hero portrait */
+.glow-portrait {
+  background: radial-gradient(closest-side, rgba(232, 163, 59, 0.22), rgba(232, 163, 59, 0));
 }
 
-.grid-hero {
-  opacity: 0.35;
-  background-image: linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
-  background-size: 72px 72px;
-  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, black, transparent 75%);
-  mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, black, transparent 75%);
-}
-
-.glow-ai {
-  background: radial-gradient(
-    ellipse 50% 40% at 80% 0%,
-    rgba(52, 211, 153, 0.06),
-    transparent 70%
-  );
-}
-
-.glow-contact {
-  background: radial-gradient(
-    ellipse 55% 55% at 50% 100%,
-    rgba(52, 211, 153, 0.1),
-    transparent 70%
-  );
+/* Fades the portrait's base into the page */
+.fade-portrait {
+  background: linear-gradient(rgba(14, 17, 22, 0), var(--background));
 }

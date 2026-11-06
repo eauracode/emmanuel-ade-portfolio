@@ -1,11 +1,11 @@
-import { ArrowDown } from "lucide-react";
 import { Reveal } from "@/components/reveal";
+import { btnPrimary } from "@/components/ui";
 import { SectionHeading } from "@/components/section-heading";
 import { skillsSection } from "@/lib/content";
 
 export function Skills() {
   return (
-    <section id="skills" className="scroll-mt-16 border-t border-border-subtle">
+    <section id="skills" className="scroll-mt-20 border-t border-border-subtle">
       <div className="mx-auto max-w-6xl px-6 py-24 sm:py-32">
         <SectionHeading
           eyebrow={skillsSection.eyebrow}
@@ -24,7 +24,7 @@ export function Skills() {
                   {group.items.map((item) => (
                     <li
                       key={item}
-                      className="rounded-full border border-border-subtle px-2.5 py-1 font-mono text-[11px] text-muted-foreground"
+                      className="rounded-full border border-border-subtle px-2.5 py-1 text-xs text-muted-foreground"
                     >
                       {item}
                     </li>
@@ -38,10 +38,9 @@ export function Skills() {
         <Reveal delay={0.1} className="mt-10">
           <a
             href="#contact"
-            className="group inline-flex items-center gap-2 rounded-full bg-accent-strong px-6 py-3 text-sm font-semibold text-[#052e21] transition-all duration-200 hover:bg-accent hover:shadow-[0_0_32px_rgba(52,211,153,0.35)]"
+            className={btnPrimary}
           >
             {skillsSection.ctaLabel}
-            <ArrowDown className="h-4 w-4 transition-transform duration-200 group-hover:translate-y-0.5" />
           </a>
         </Reveal>
       </div>

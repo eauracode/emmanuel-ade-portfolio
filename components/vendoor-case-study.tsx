@@ -15,13 +15,13 @@ const pipelineIcons = [MessageSquareText, Sparkles, Warehouse, Bike, PackageChec
 
 export function VendoorCaseStudy() {
   return (
-    <section id="work" className="relative scroll-mt-16 border-t border-border-subtle">
+    <section id="vendoor" className="relative scroll-mt-20 border-t border-border-subtle">
       <div className="mx-auto max-w-6xl px-6 py-24 sm:py-32">
         <Reveal className="max-w-3xl">
-          <p className="font-mono text-xs uppercase tracking-[0.2em] text-accent">
+          <p className="text-[13px] font-semibold uppercase tracking-[0.08em] text-accent">
             {vendoor.eyebrow}
           </p>
-          <h2 className="mt-4 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+          <h2 className="mt-4 text-3xl font-bold tracking-[-0.02em] text-foreground sm:text-[40px] sm:leading-[1.1]">
             {vendoor.title}
           </h2>
           <p className="mt-4 text-lg font-medium text-foreground sm:text-xl">
@@ -82,7 +82,7 @@ export function VendoorCaseStudy() {
             {vendoor.stack.map((tech) => (
               <li
                 key={tech}
-                className="rounded-full border border-border-subtle px-2.5 py-0.5 font-mono text-[11px] text-faint-foreground"
+                className="rounded-full border border-border-subtle px-2.5 py-0.5 text-xs text-faint-foreground"
               >
                 {tech}
               </li>
@@ -94,7 +94,7 @@ export function VendoorCaseStudy() {
               href={site.whatsappLink(vendoor.primaryCta.waMessage)}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-accent-strong px-6 py-3 text-sm font-semibold text-[#052e21] transition-all duration-200 hover:bg-accent hover:shadow-[0_0_32px_rgba(52,211,153,0.35)]"
+              className="inline-flex items-center gap-2 rounded-xl bg-accent px-6 py-3 text-sm font-semibold text-on-accent transition-all duration-200 hover:bg-accent-hover"
             >
               <WhatsAppIcon className="h-4 w-4" />
               {vendoor.primaryCta.label}
@@ -103,7 +103,7 @@ export function VendoorCaseStudy() {
               href={vendoor.secondaryCta.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center gap-2 rounded-full border border-border-strong px-6 py-3 text-sm font-semibold text-foreground transition-colors duration-200 hover:border-accent/60 hover:text-accent"
+              className="group inline-flex items-center gap-2 rounded-xl border border-border-strong px-6 py-3 text-sm font-semibold text-foreground transition-colors duration-200 hover:border-accent/60 hover:text-accent"
             >
               {vendoor.secondaryCta.label}
               <ArrowUpRight className="h-4 w-4 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />

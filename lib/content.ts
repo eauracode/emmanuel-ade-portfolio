@@ -1,53 +1,61 @@
+export type Cta = { label: string; href: string } | { label: string; waMessage: string };
+
 export const hero = {
-  eyebrow: "Lagos, Nigeria · Working with founders and business owners everywhere",
-  h1: "Your idea, built and live — faster and cheaper than you thought possible.",
-  sub: "I build the software that runs your business — so you can stop paying monthly fees for tools you don't own, stop waiting months for developers, and start buying your time back. From the MVP that gets you in front of investors, to the online store that sells while you sleep, to internal systems that keep your data in your hands.",
+  eyebrow: "AI Systems & Solutions · Lagos · Taking new projects",
+  sub: "MVPs that get you in front of investors, online stores that sell while you sleep, and internal systems you own — no monthly fees.",
   primaryCta: {
-    label: "Chat with me on WhatsApp",
+    label: "Chat on WhatsApp",
     waMessage: "Hi Emmanuel, I have an idea I'd like to build.",
   },
-  secondaryCta: { label: "See what's possible", href: "#who" },
+  secondaryCta: { label: "See the work →", href: "#work" },
+  portrait: {
+    src: "/portrait.png",
+    alt: "Emmanuel Ade",
+    name: "Emmanuel Ade",
+    role: "AI Systems Engineer · Full-stack",
+  },
 };
 
 export const stats = [
-  { value: "8+ products", label: "taken from idea to live" },
-  { value: "Weeks, not months", label: "typical time from brief to launch" },
-  { value: "₦0/month", label: "what most builds cost to keep running after launch" },
-  { value: "100% yours", label: "your code, your data, your product" },
+  { value: "8+", label: "products taken from idea to live" },
+  { value: "Weeks", label: "typical brief to launch, not months" },
+  { value: "₦0/mo", label: "to keep most builds running", accent: true },
+  { value: "100%", label: "your code, your data, your product" },
 ];
 
 export const whoIHelp = {
-  heading: "Whatever stage you're at, you're closer to launch than you think.",
+  heading: "Whatever stage you're at.",
   cards: [
     {
-      title: "Founders with an idea",
-      lead: "You don't need 6 months and ₦10 million to test your idea.",
-      body: "That idea you've been sitting on? I can turn it into a working prototype or MVP in weeks — something real you can put in front of investors, customers, and partners while your competitors are still writing business plans. Investors don't fund ideas anymore. They fund things they can click. Let's give them something to click.",
-      ctaLabel: "Build my MVP →",
-      waMessage: "Hi Emmanuel, I'm a founder and I want to build my MVP.",
+      label: "01 · Founders",
+      lead: "An MVP investors can click.",
+      cta: {
+        label: "Build my MVP →",
+        waMessage: "Hi Emmanuel, I'm a founder and I want to build my MVP.",
+      },
     },
     {
-      title: "Small business owners",
-      lead: "Get your business online — without paying anyone monthly, ever.",
-      body: "You don't need an agency. You don't need a subscription website builder charging you every month. You don't even need to buy a domain name if you don't want to yet. I'll build you a fast, professional website you fully own, show you how it works, and deploy it live — at zero ongoing cost. Your customers Google you. Make sure they find you.",
-      ctaLabel: "Get my business online →",
-      waMessage: "Hi Emmanuel, I want a website for my business.",
+      label: "02 · Small businesses",
+      lead: "Online, with no monthly fees.",
+      cta: {
+        label: "Get online →",
+        waMessage: "Hi Emmanuel, I want a website for my business.",
+      },
     },
     {
-      title: "Ecommerce sellers",
-      lead: "Your own store. Your own rules. No platform taking a cut.",
-      body: "Stop renting shelf space on someone else's platform. I build complete online stores — products, cart, checkout, payments, order management — that belong to you. Launch fast, sell fast, keep your margins. And if you want to turn store-building into a business of its own, I'll set up the system and show you how to run it for your own clients.",
-      ctaLabel: "Launch my store →",
-      waMessage: "Hi Emmanuel, I want to launch an online store.",
+      label: "03 · Online sellers",
+      lead: "Your store, no platform cut.",
+      cta: { label: "See store plans →", href: "/pricing" },
     },
     {
-      title: "Businesses drowning in subscriptions",
-      lead: "Own your software. Own your data. Cancel the monthly fees.",
-      body: 'Every month, money leaves your account for tools that were never built for your business — and your customer data sits on someone else\'s servers. I build internal systems tailored to exactly how your business works: inventory, orders, payroll, customer records, reporting. Built once, owned forever, running on your terms. No renewals. No "per seat" pricing. No third party holding your data.',
-      ctaLabel: "Replace my subscriptions →",
-      waMessage: "Hi Emmanuel, I want to replace my software subscriptions with a system I own.",
+      label: "04 · Companies",
+      lead: "Cancel the subscriptions.",
+      cta: {
+        label: "Replace my tools →",
+        waMessage: "Hi Emmanuel, I want to replace my software subscriptions with a system I own.",
+      },
     },
-  ],
+  ] satisfies { label: string; lead: string; cta: Cta }[],
 };
 
 export const vendoor = {
@@ -153,113 +161,80 @@ export const ai = {
   },
 };
 
-export type ProjectCta =
-  | { label: string; href: string }
-  | { label: string; waMessage: string };
-
 export type Project = {
+  category: string;
   name: string;
-  description: string;
-  stack: string[];
-  ctas: ProjectCta[];
-  image?: string;
-  imageAlt?: string;
+  summary: string;
+  image: string;
+  imageAlt: string;
+  cta: Cta;
 };
 
-export const webProjects = {
-  eyebrow: "From idea to launch",
-  title: "Products that look funded — built in weeks.",
-  projects: [
+export const work = {
+  title: "Products that look funded.",
+  titleLine2: "Built in weeks.",
+  // Row one: two large tiles. Row two: smaller tiles, then the AI tile.
+  featured: [
     {
-      name: "Yemcy Beauty World — an online boutique that sells while she sleeps",
-      description:
-        "A complete online store for a Lagos jewellery, bags and shoes seller. Customers shop, pay by card, transfer or USSD, and get their receipt on WhatsApp the moment payment clears. A “Find it for me” feature lets them upload a picture they saw on Instagram or TikTok and get a sourced quote with a payment link — sales that used to get lost in the DMs.",
-      stack: ["Next.js 16", "React 19", "PostgreSQL", "Prisma", "Paystack", "WhatsApp"],
-      ctas: [
-        { label: "Visit live store →", href: "https://yemcy-store-ashy.vercel.app" },
-        {
-          label: "I want a store like this →",
-          waMessage: "Hi Emmanuel, I saw the Yemcy store — I want an online store like this.",
-        },
-      ],
-      image: "/screenshots/yemcy.jpeg",
-      imageAlt: "Yemcy Beauty World online store home page",
-    },
-    {
-      name: "CashOS — an investor-ready fintech product, built to pitch",
-      description:
-        "A complete fintech app prototype — wallets, transactions, billing, insights, and reporting across 12 screens — polished enough to demo to investors. This is what your MVP can look like: real enough to raise money on, fast enough to beat your competition to the room.",
-      stack: ["Next.js 16", "React 19", "Tailwind v4", "Recharts", "Zustand"],
-      ctas: [
-        {
-          label: "I want an MVP like this →",
-          waMessage: "Hi Emmanuel, I want an investor-ready MVP like CashOS.",
-        },
-      ],
+      category: "Fintech MVP",
+      name: "CashOS",
+      summary: "Investor-ready prototype across 12 screens — wallets, billing, insights and reporting.",
       image: "/screenshots/cashos.jpeg",
       imageAlt: "CashOS fintech dashboard",
+      cta: {
+        label: "MVP like this →",
+        waMessage: "Hi Emmanuel, I want an investor-ready MVP like CashOS.",
+      },
     },
     {
-      name: "DLISA Student Portal — every complaint heard, none lost",
-      description:
-        "A welfare and academic support portal for the students' association of the University of Lagos Distance Learning Institute. Students raise a concern in under a minute with just a username — no name, no phone number, no matric number — and follow it privately to resolution. AI groups duplicate reports into one issue, so the executive sees what matters most, assigns it, sets a deadline, and publishes one update to everyone affected.",
-      stack: ["Next.js 16", "React 19", "TypeScript", "PostgreSQL", "Tailwind v4", "AI Matching"],
-      ctas: [
-        {
-          label: "I want a portal like this →",
-          waMessage: "Hi Emmanuel, I saw the DLISA portal — I want a portal like this for my organisation.",
-        },
-      ],
-      image: "/screenshots/dlisa.jpeg",
-      imageAlt: "DLI Students' Association student support portal",
-    },
-    {
-      name: "MicroTech Hub Africa — a redesign built to convert",
-      description:
-        "A tech academy's website, completely rebuilt to be fast, modern, and focused on one job: turning visitors into enrolled students. Shipped live to production.",
-      stack: ["Next.js 16", "React 19", "Tailwind v4", "Framer Motion"],
-      ctas: [
-        { label: "Visit live site →", href: "https://microtech-africa.vercel.app" },
-        {
-          label: "Redesign my site →",
-          waMessage: "Hi Emmanuel, I want my website redesigned.",
-        },
-      ],
-      image: "/screenshots/microtech.jpeg",
-      imageAlt: "MicroTech Hub Africa website",
-    },
-    {
-      name: "Dr. Busayo — a clinic, a foundation, and a ministry on one site",
-      description:
-        "One website for a consultant psychiatrist's three ventures: a virtual clinic with online booking, a mental health foundation, and a faith-based healing ministry — each with its own colour and its own call to action. Her team edits everything without a developer, it scores 95+ on Google's mobile speed test over Nigerian networks, and it runs on low-cost shared hosting.",
-      stack: ["WordPress", "PHP 8.1", "Custom Theme", "LatePoint Booking", "Schema SEO"],
-      ctas: [
-        { label: "Visit live site →", href: "https://www.drbusayo.com" },
-        {
-          label: "I want a site like this →",
-          waMessage: "Hi Emmanuel, I saw drbusayo.com — I want a website like this.",
-        },
-      ],
-      image: "/screenshots/drbusayo.jpeg",
-      imageAlt: "Dr. Busayo website home page",
-    },
-    {
-      name: "VenDoor Ops Suite — three products, one operation",
-      description:
-        "Clickable, hand-built product demos for a full delivery operation — the dispatcher's console, the merchant's app, and the rider's app. Proof that I design for the people who'll actually use the software, not just the person paying for it.",
-      stack: ["HTML/CSS", "Product Design", "UX Flows"],
-      ctas: [
-        { label: "Explore the demos →", href: "https://mockups-five-silk.vercel.app" },
-      ],
-      image: "/screenshots/mockups.jpeg",
-      imageAlt: "VenDoor product demo suite",
+      category: "Online store",
+      name: "Yemcy Beauty World",
+      summary: "Card, transfer and USSD checkout, with receipts sent to WhatsApp.",
+      image: "/screenshots/yemcy.jpeg",
+      imageAlt: "Yemcy Beauty World online store home page",
+      cta: { label: "Visit live store →", href: "https://yemcy-store-ashy.vercel.app" },
     },
   ] satisfies Project[],
+  more: [
+    {
+      category: "Student portal · AI matching",
+      name: "DLISA Student Portal",
+      summary: "Anonymous student complaints, grouped by AI and tracked to resolution.",
+      image: "/screenshots/dlisa.jpeg",
+      imageAlt: "DLI Students' Association student support portal",
+      cta: {
+        label: "Portal like this →",
+        waMessage: "Hi Emmanuel, I saw the DLISA portal — I want a portal like this for my organisation.",
+      },
+    },
+    {
+      category: "Redesign",
+      name: "MicroTech Hub Africa",
+      summary: "A tech academy's site, rebuilt to turn visitors into students.",
+      image: "/screenshots/microtech.jpeg",
+      imageAlt: "MicroTech Hub Africa website",
+      cta: { label: "Visit live site →", href: "https://microtech-africa.vercel.app" },
+    },
+    {
+      category: "WordPress · Booking",
+      name: "Dr. Busayo",
+      summary: "A clinic, a foundation and a ministry on one fast site.",
+      image: "/screenshots/drbusayo.jpeg",
+      imageAlt: "Dr. Busayo website home page",
+      cta: { label: "Visit live site →", href: "https://www.drbusayo.com" },
+    },
+  ] satisfies Project[],
+  aiTile: {
+    category: "AI automation",
+    text: "WhatsApp chaos → clean records. Scripts that write themselves. A 24/7 sales bot.",
+    cta: { label: "Automate my busywork →", href: "#ai" },
+  },
 };
 
 export const pricing = {
   eyebrow: "Online store pricing",
-  title: "Your own online store. One price. ₦0/month after.",
+  title: "Your own online store. One price.",
+  titleAccent: "₦0/month after.",
   intro:
     "For SMEs and online vendors ready to sell beyond the DMs. Every plan is a one-off payment — no monthly fees, no commission on your sales, and the store is 100% yours.",
   plans: [
@@ -304,7 +279,30 @@ export const pricing = {
     },
   ],
   footnote:
-    "One-off price, ₦0/month after launch. Only third-party costs are yours: a domain name if you want one, and the payment gateway's standard fee on each sale.",
+    "Only third-party costs are yours: a domain name if you want one, and the payment gateway's standard fee on each sale.",
+  benefits: [
+    { title: "No monthly fees", body: "Pay once. Nothing renews." },
+    { title: "No commission", body: "Every sale's margin stays yours." },
+    { title: "100% yours", body: "Your code, your data, your store." },
+  ],
+  custom: {
+    title: "Need something other than a store?",
+    body: "MVPs, business websites, internal systems and AI automation are quoted per project. Tell me what you need and you'll get a clear plan and price.",
+    ctaLabel: "Get a custom quote →",
+    waMessage: "Hi Emmanuel, I'd like a quote for a project that isn't an online store.",
+  },
+  closing: {
+    title: "Ready to sell beyond the DMs?",
+    waLabel: "Chat on WhatsApp",
+    waMessage: "Hi Emmanuel, I'd like to talk about an online store for my business.",
+    workLabel: "See my work",
+  },
+  // The home page's one-line pointer to /pricing.
+  teaser: {
+    title: "Online stores from ₦75,000 — one-off, ₦0/month after.",
+    body: "Three plans, no commission on your sales.",
+    ctaLabel: "View pricing →",
+  },
 };
 
 export const skillsSection = {

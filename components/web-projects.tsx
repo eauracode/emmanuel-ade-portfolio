@@ -1,108 +1,90 @@
 import Image from "next/image";
-import { ArrowUpRight } from "lucide-react";
 import { Reveal } from "@/components/reveal";
-import { SectionHeading } from "@/components/section-heading";
-import { WhatsAppIcon } from "@/components/whatsapp-icon";
-import { webProjects, type ProjectCta } from "@/lib/content";
-import { site } from "@/lib/site-config";
+import { CtaLink, eyebrow } from "@/components/ui";
+import { work, type Project } from "@/lib/content";
 
-function ProjectCtaLink({ cta, primary }: { cta: ProjectCta; primary: boolean }) {
-  const isWhatsApp = "waMessage" in cta;
-  const href = isWhatsApp ? site.whatsappLink(cta.waMessage) : cta.href;
+const linkClass =
+  "inline-flex min-h-11 items-center text-[15px] font-semibold text-accent transition-colors duration-200 hover:text-accent-hover";
 
-  if (primary) {
-    return (
-      <a
-        href={href}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-flex items-center gap-2 rounded-full bg-accent-strong px-5 py-2.5 text-sm font-semibold text-[#052e21] transition-all duration-200 hover:bg-accent hover:shadow-[0_0_28px_rgba(52,211,153,0.3)]"
-      >
-        {isWhatsApp ? <WhatsAppIcon className="h-4 w-4" /> : null}
-        {cta.label}
-      </a>
-    );
-  }
+function Shot({ project, height }: { project: Project; height: string }) {
   return (
-    <a
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="group inline-flex items-center gap-1.5 rounded-full border border-border-strong px-5 py-2.5 text-sm font-semibold text-foreground transition-colors duration-200 hover:border-accent/60 hover:text-accent"
-    >
-      {cta.label}
-      <ArrowUpRight className="h-4 w-4 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-    </a>
+    <div className={`relative overflow-hidden rounded-xl border border-border-subtle bg-surface-raised ${height}`}>
+      <Image
+        src={project.image}
+        alt={project.imageAlt}
+        fill
+        sizes="(min-width: 1024px) 50vw, 100vw"
+        className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
+      />
+    </div>
   );
 }
 
 export function WebProjects() {
   return (
-    <section id="projects" className="scroll-mt-16 border-t border-border-subtle">
-      <div className="mx-auto max-w-6xl px-6 py-24 sm:py-32">
-        <SectionHeading eyebrow={webProjects.eyebrow} title={webProjects.title} />
+    <section id="work" className="scroll-mt-20">
+      <div className="mx-auto flex max-w-6xl flex-col gap-8 px-6 pb-24 lg:px-8">
+        <Reveal>
+          <h2 className="text-3xl font-bold leading-[1.1] tracking-[-0.02em] text-foreground sm:text-[44px]">
+            {work.title}
+            <br />
+            {work.titleLine2}
+          </h2>
+        </Reveal>
 
-        <div className="mt-14 space-y-6">
-          {webProjects.projects.map((project, i) => (
-            <Reveal key={project.name} delay={0.05}>
-              <article
-                className={`group grid overflow-hidden rounded-2xl border border-border-subtle bg-surface transition-colors duration-300 hover:border-accent/40 lg:grid-cols-2 ${
-                  i % 2 === 1 ? "lg:[&>*:first-child]:order-last" : ""
-                }`}
-              >
-                <div className="flex flex-col p-8 sm:p-10">
-                  <h3 className="text-xl font-semibold leading-snug tracking-tight text-foreground sm:text-2xl">
-                    {project.name}
-                  </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground sm:text-base">
-                    {project.description}
-                  </p>
-
-                  <ul className="mt-5 flex flex-wrap gap-1.5">
-                    {project.stack.map((tech) => (
-                      <li
-                        key={tech}
-                        className="rounded-full border border-border-subtle px-2.5 py-0.5 font-mono text-[11px] text-faint-foreground"
-                      >
-                        {tech}
-                      </li>
-                    ))}
-                  </ul>
-
-                  <div className="mt-auto flex flex-wrap items-center gap-3 pt-8">
-                    {project.ctas.map((cta, ctaIndex) => {
-                      const hasWhatsAppCta = project.ctas.some((c) => "waMessage" in c);
-                      return (
-                        <ProjectCtaLink
-                          key={cta.label}
-                          cta={cta}
-                          primary={
-                            "waMessage" in cta || (!hasWhatsAppCta && ctaIndex === 0)
-                          }
-                        />
-                      );
-                    })}
+        <div className="flex flex-wrap gap-5">
+          {work.featured.map((project, i) => (
+            <Reveal
+              key={project.name}
+              delay={0.05 * i}
+              className={i === 0 ? "min-w-0 flex-[2_1_560px]" : "min-w-0 flex-[1_1_320px]"}
+            >
+              <article className="group flex h-full flex-col gap-5 rounded-[20px] border border-border-subtle bg-surface p-6 transition-colors duration-300 hover:border-border-strong sm:p-7">
+                <Shot project={project} height="h-56 sm:h-[300px]" />
+                <div className="mt-auto flex flex-wrap items-end justify-between gap-3">
+                  <div className="flex flex-col gap-1.5">
+                    <span className={eyebrow}>{project.category}</span>
+                    <h3 className="text-2xl font-semibold text-foreground sm:text-[28px]">
+                      {project.name}
+                    </h3>
+                    <p className="text-[15px] leading-relaxed text-muted-foreground">
+                      {project.summary}
+                    </p>
                   </div>
+                  <CtaLink cta={project.cta} className={linkClass} />
                 </div>
-
-                {project.image ? (
-                  <div className="relative min-h-64 overflow-hidden border-t border-border-subtle lg:min-h-full lg:border-t-0">
-                    <Image
-                      src={project.image}
-                      alt={project.imageAlt ?? project.name}
-                      fill
-                      sizes="(min-width: 1024px) 50vw, 100vw"
-                      className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
-                    />
-                    <div
-                      aria-hidden
-                      className="absolute inset-0 bg-gradient-to-t from-background/30 to-transparent"
-                    />
-                  </div>
-                ) : null}
               </article>
             </Reveal>
           ))}
+        </div>
+
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {work.more.map((project, i) => (
+            <Reveal key={project.name} delay={0.05 * i}>
+              <article className="group flex h-full flex-col gap-4 rounded-[20px] border border-border-subtle bg-surface p-6 transition-colors duration-300 hover:border-border-strong">
+                <Shot project={project} height="h-[170px]" />
+                <span className="text-xs font-semibold uppercase tracking-[0.06em] text-accent">
+                  {project.category}
+                </span>
+                <h3 className="text-xl font-semibold text-foreground">{project.name}</h3>
+                <p className="text-sm leading-relaxed text-muted-foreground">{project.summary}</p>
+                <CtaLink cta={project.cta} className={`${linkClass} mt-auto`} />
+              </article>
+            </Reveal>
+          ))}
+
+          <Reveal delay={0.15}>
+            <article className="flex h-full flex-col justify-between gap-4 rounded-[20px] bg-accent p-6 text-on-accent">
+              <span className="text-xs font-bold uppercase tracking-[0.06em]">
+                {work.aiTile.category}
+              </span>
+              <h3 className="text-2xl font-semibold leading-[1.2]">{work.aiTile.text}</h3>
+              <CtaLink
+                cta={work.aiTile.cta}
+                className="inline-flex min-h-11 items-center text-[15px] font-bold underline decoration-2 underline-offset-4"
+              />
+            </article>
+          </Reveal>
         </div>
       </div>
     </section>

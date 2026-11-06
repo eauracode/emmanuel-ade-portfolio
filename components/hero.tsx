@@ -1,8 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
-import { ArrowDown } from "lucide-react";
 import { WhatsAppIcon } from "@/components/whatsapp-icon";
+import { btnOutline, btnPrimary } from "@/components/ui";
 import { hero, stats } from "@/lib/content";
 import { site } from "@/lib/site-config";
 
@@ -18,68 +19,90 @@ export function Hero() {
   });
 
   return (
-    <section id="top" className="relative overflow-hidden">
-      <div aria-hidden className="glow-hero pointer-events-none absolute inset-0" />
-      <div aria-hidden className="grid-hero pointer-events-none absolute inset-0" />
-
-      <div className="relative mx-auto flex min-h-dvh max-w-6xl flex-col justify-center px-6 pb-20 pt-32">
-        <motion.div {...fadeUp(0)}>
-          <span className="inline-flex items-center gap-2 rounded-full border border-border-subtle bg-surface px-3.5 py-1.5 text-xs font-medium text-muted-foreground">
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-60" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
-            </span>
+    <section id="top" className="relative">
+      <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-12 px-6 pb-16 pt-32 lg:px-8 lg:pt-36">
+        <div className="flex min-w-0 flex-[1_1_560px] flex-col gap-7">
+          <motion.span
+            {...fadeUp(0)}
+            className="inline-flex items-center gap-2 self-start rounded-full border border-border-mid px-3.5 py-2 text-[13px] text-soft-foreground"
+          >
+            <span aria-hidden className="h-2 w-2 shrink-0 rounded-full bg-live" />
             {hero.eyebrow}
-          </span>
-        </motion.div>
+          </motion.span>
 
-        <motion.h1
-          {...fadeUp(0.08)}
-          className="mt-8 max-w-4xl text-4xl font-semibold leading-[1.08] tracking-tight text-foreground sm:text-5xl lg:text-6xl"
-        >
-          Your idea,{" "}
-          <span className="bg-gradient-to-r from-accent via-emerald-300 to-teal-200 bg-clip-text text-transparent">
-            built and live
-          </span>{" "}
-          — faster and cheaper than you thought possible.
-        </motion.h1>
-
-        <motion.p
-          {...fadeUp(0.18)}
-          className="mt-7 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg"
-        >
-          {hero.sub}
-        </motion.p>
-
-        <motion.div {...fadeUp(0.28)} className="mt-10 flex flex-wrap items-center gap-4">
-          <a
-            href={site.whatsappLink(hero.primaryCta.waMessage)}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2.5 rounded-full bg-accent-strong px-6 py-3 text-sm font-semibold text-[#052e21] transition-all duration-200 hover:bg-accent hover:shadow-[0_0_32px_rgba(52,211,153,0.35)]"
+          <motion.h1
+            {...fadeUp(0.08)}
+            className="max-w-[680px] text-[2.6rem] font-bold leading-[1.04] tracking-[-0.03em] text-foreground sm:text-5xl lg:text-[64px]"
           >
-            <WhatsAppIcon className="h-4.5 w-4.5" />
-            {hero.primaryCta.label}
-          </a>
-          <a
-            href={hero.secondaryCta.href}
-            className="group inline-flex items-center gap-2 rounded-full border border-border-strong px-6 py-3 text-sm font-semibold text-foreground transition-colors duration-200 hover:border-accent/60 hover:text-accent"
-          >
-            {hero.secondaryCta.label}
-            <ArrowDown className="h-4 w-4 transition-transform duration-200 group-hover:translate-y-0.5" />
-          </a>
-        </motion.div>
+            Your idea, built and live — <span className="text-accent">faster and cheaper</span>{" "}
+            than you thought possible.
+          </motion.h1>
 
+          <motion.p
+            {...fadeUp(0.18)}
+            className="max-w-[680px] text-lg leading-relaxed text-muted-foreground sm:text-xl"
+          >
+            {hero.sub}
+          </motion.p>
+
+          <motion.div {...fadeUp(0.28)} className="flex flex-wrap gap-3.5">
+            <a
+              href={site.whatsappLink(hero.primaryCta.waMessage)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={btnPrimary}
+            >
+              <WhatsAppIcon className="h-4.5 w-4.5" />
+              {hero.primaryCta.label}
+            </a>
+            <a href={hero.secondaryCta.href} className={btnOutline}>
+              {hero.secondaryCta.label}
+            </a>
+          </motion.div>
+        </div>
+
+        <motion.div
+          {...fadeUp(0.2)}
+          className="relative mx-auto flex h-[420px] w-full max-w-[420px] flex-[0_1_420px] items-end justify-center sm:h-[500px]"
+        >
+          <div
+            aria-hidden
+            className="glow-portrait absolute bottom-10 left-1/2 h-[420px] w-[110%] -translate-x-1/2"
+          />
+          <div className="relative h-[400px] w-[340px] max-w-full overflow-hidden sm:h-[462px] sm:w-[400px]">
+            <Image
+              src={hero.portrait.src}
+              alt={hero.portrait.alt}
+              width={447}
+              height={558}
+              priority
+              sizes="(min-width: 640px) 400px, 340px"
+              className="block h-auto w-full"
+            />
+            <div aria-hidden className="fade-portrait absolute inset-x-0 bottom-0 h-36" />
+          </div>
+          <div className="absolute bottom-12 left-0 flex flex-col gap-0.5 rounded-[14px] border border-border-mid bg-surface px-4 py-3">
+            <span className="font-display text-[15px] font-semibold text-foreground">
+              {hero.portrait.name}
+            </span>
+            <span className="text-[13px] text-faint-foreground">{hero.portrait.role}</span>
+          </div>
+        </motion.div>
+      </div>
+
+      <div className="mx-auto max-w-6xl px-6 pb-24 lg:px-8">
         <motion.dl
           {...fadeUp(0.38)}
-          className="mt-20 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-border-subtle bg-border-subtle lg:grid-cols-4"
+          className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-border-subtle bg-border-subtle lg:grid-cols-4"
         >
           {stats.map((stat) => (
-            <div key={stat.label} className="bg-surface px-6 py-5">
-              <dt className="order-last mt-1 text-xs leading-snug text-faint-foreground">
-                {stat.label}
-              </dt>
-              <dd className="text-xl font-semibold tracking-tight text-foreground sm:text-2xl">
+            <div key={stat.label} className="flex flex-col gap-1.5 bg-background p-6 sm:p-7">
+              <dt className="order-last text-sm text-faint-foreground">{stat.label}</dt>
+              <dd
+                className={`font-display text-3xl font-bold sm:text-4xl ${
+                  stat.accent ? "text-accent" : "text-foreground"
+                }`}
+              >
                 {stat.value}
               </dd>
             </div>

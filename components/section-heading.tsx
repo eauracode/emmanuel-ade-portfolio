@@ -1,4 +1,5 @@
 import { Reveal } from "@/components/reveal";
+import { eyebrow as eyebrowClass } from "@/components/ui";
 
 export function SectionHeading({
   eyebrow,
@@ -11,10 +12,8 @@ export function SectionHeading({
 }) {
   return (
     <Reveal className="max-w-2xl">
-      <p className="font-mono text-xs uppercase tracking-[0.2em] text-accent">
-        {eyebrow}
-      </p>
-      <h2 className="mt-4 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+      <p className={eyebrowClass}>{eyebrow}</p>
+      <h2 className="mt-4 text-3xl font-bold tracking-[-0.02em] text-foreground sm:text-[40px] sm:leading-[1.1]">
         {title}
       </h2>
       {description ? (

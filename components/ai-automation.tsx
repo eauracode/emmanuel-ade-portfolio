@@ -9,8 +9,7 @@ const icons = [Workflow, Bot, MessageCircle];
 
 export function AiAutomation() {
   return (
-    <section id="ai" className="relative scroll-mt-16 border-t border-border-subtle">
-      <div aria-hidden className="glow-ai pointer-events-none absolute inset-0" />
+    <section id="ai" className="relative scroll-mt-20 border-t border-border-subtle">
       <div className="relative mx-auto max-w-6xl px-6 py-24 sm:py-32">
         <SectionHeading eyebrow={ai.eyebrow} title={ai.title} description={ai.intro} />
 
@@ -24,7 +23,7 @@ export function AiAutomation() {
                     <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-accent-dim">
                       <Icon className="h-5 w-5 text-accent" />
                     </span>
-                    <span className="font-mono text-[11px] uppercase tracking-[0.15em] text-faint-foreground">
+                    <span className="text-xs font-semibold uppercase tracking-[0.06em] text-faint-foreground">
                       {card.tag}
                     </span>
                   </div>
@@ -49,7 +48,7 @@ export function AiAutomation() {
                     {card.stack.map((tech) => (
                       <li
                         key={tech}
-                        className="rounded-full border border-border-subtle px-2.5 py-0.5 font-mono text-[11px] text-faint-foreground"
+                        className="rounded-full border border-border-subtle px-2.5 py-0.5 text-xs text-faint-foreground"
                       >
                         {tech}
                       </li>
@@ -71,7 +70,7 @@ export function AiAutomation() {
               href={site.whatsappLink(ai.banner.waMessage)}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-accent-strong px-6 py-3 text-sm font-semibold text-[#052e21] transition-all duration-200 hover:bg-accent hover:shadow-[0_0_32px_rgba(52,211,153,0.35)]"
+              className="inline-flex items-center gap-2 rounded-xl bg-accent px-6 py-3 text-sm font-semibold text-on-accent transition-all duration-200 hover:bg-accent-hover"
             >
               <WhatsAppIcon className="h-4 w-4" />
               {ai.banner.ctaLabel}

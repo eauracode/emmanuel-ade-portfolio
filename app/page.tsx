@@ -1,8 +1,9 @@
 import { AiAutomation } from "@/components/ai-automation";
 import { Contact } from "@/components/contact";
+import { Footer } from "@/components/footer";
 import { Hero } from "@/components/hero";
 import { Nav } from "@/components/nav";
-import { Pricing } from "@/components/pricing";
+import { PricingTeaser } from "@/components/pricing";
 import { Skills } from "@/components/skills";
 import { VendoorCaseStudy } from "@/components/vendoor-case-study";
 import { WebProjects } from "@/components/web-projects";
@@ -14,14 +15,15 @@ export default function Home() {
       <Nav />
       <main>
         <Hero />
+        <WebProjects />
         <WhoIHelp />
         <VendoorCaseStudy />
         <AiAutomation />
-        <WebProjects />
-        <Pricing />
         <Skills />
+        <PricingTeaser />
         <Contact />
       </main>
+      <Footer />
     </>
   );
 }

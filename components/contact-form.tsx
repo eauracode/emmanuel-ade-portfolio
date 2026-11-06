@@ -78,7 +78,7 @@ export function ContactForm() {
           href={site.whatsappLink("Hi Emmanuel, I just sent you a message through your portfolio form.")}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-5 inline-flex items-center gap-2 rounded-full bg-[#25D366] px-6 py-3 text-sm font-semibold text-white transition-transform duration-200 hover:scale-[1.03]"
+          className="mt-5 inline-flex items-center gap-2 rounded-full bg-[#25D366] px-6 py-3 text-sm font-semibold text-[#0b2e17] transition-transform duration-200 hover:scale-[1.03]"
         >
           <WhatsAppIcon className="h-4 w-4" />
           Chat on WhatsApp
@@ -174,7 +174,7 @@ export function ContactForm() {
       {status === "error" ? (
         <div className="rounded-xl border border-border-strong bg-surface-raised p-4 text-sm text-muted-foreground" role="alert">
           Something went wrong sending your message. Reach me directly instead:{" "}
-          <a href={`mailto:${site.email}`} className="font-medium text-accent hover:text-emerald-300">
+          <a href={`mailto:${site.email}`} className="font-medium text-accent hover:text-accent-hover">
             {site.email}
           </a>{" "}
           or{" "}
@@ -182,7 +182,7 @@ export function ContactForm() {
             href={site.whatsappLink("Hi Emmanuel, I'd like to discuss a project.")}
             target="_blank"
             rel="noopener noreferrer"
-            className="font-medium text-accent hover:text-emerald-300"
+            className="font-medium text-accent hover:text-accent-hover"
           >
             WhatsApp
           </a>
@@ -193,7 +193,7 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={status === "sending"}
-        className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-accent-strong px-6 py-3.5 text-sm font-semibold text-[#052e21] transition-all duration-200 hover:bg-accent hover:shadow-[0_0_32px_rgba(52,211,153,0.35)] disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
+        className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-accent px-6 py-3.5 text-sm font-semibold text-on-accent transition-all duration-200 hover:bg-accent-hover disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
       >
         {status === "sending" ? (
           <>
