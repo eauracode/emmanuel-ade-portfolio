@@ -21,15 +21,19 @@ const description =
   "I help founders launch investor-ready MVPs in weeks, business owners get online without monthly fees, and companies replace expensive subscriptions with software they actually own.";
 
 export const metadata: Metadata = {
+  // Absolute base for og:image and friends; WhatsApp ignores relative image URLs.
+  metadataBase: new URL("https://portfolio-sigma-blush-81.vercel.app"),
   title,
   description,
   openGraph: {
     title,
     description,
+    url: "/",
+    siteName: "Emmanuel Ade",
     type: "website",
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title,
     description,
   },

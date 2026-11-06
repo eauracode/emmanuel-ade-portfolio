@@ -15,8 +15,8 @@ const description =
 export const metadata: Metadata = {
   title,
   description,
-  openGraph: { title, description, type: "website" },
-  twitter: { card: "summary", title, description },
+  openGraph: { title, description, url: "/pricing", siteName: "Emmanuel Ade", type: "website" },
+  twitter: { card: "summary_large_image", title, description },
 };
 
 export default function PricingPage() {
