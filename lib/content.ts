@@ -241,13 +241,12 @@ export const pricing = {
     {
       name: "Starter",
       price: "₦75,000",
-      badge: "Most popular",
       tagline: "Everything you need to start selling online.",
       features: [
         "Your own storefront, fast on any phone",
         "Payment gateway — card, transfer, and USSD",
         "WhatsApp integration — order and chat in one tap",
-        "Up to 20 products",
+        "Up to 10 products",
       ],
       ctaLabel: "Start with Starter →",
       waMessage: "Hi Emmanuel, I'd like the Starter online store plan (₦75,000).",
@@ -255,6 +254,7 @@ export const pricing = {
     {
       name: "Premium",
       price: "₦149,000",
+      badge: "Most popular",
       tagline: "For growing stores with a bigger catalogue.",
       features: [
         "Everything in Starter",
